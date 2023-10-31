@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/fondo_degradado">
+
+    <ImageView
+        android:id="@+id/id_loading_logo"
+        android:layout_width="411dp"
+        android:layout_height="459dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_launcher_foreground" />
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:indeterminateDrawable="@drawable/progress_circle"
+        app:layout_constraintEnd_toEndOf="@+id/id_loading_logo"
+        app:layout_constraintStart_toStartOf="@+id/id_loading_logo"
+        app:layout_constraintTop_toBottomOf="@+id/id_loading_logo" />
+</androidx.constraintlayout.widget.ConstraintLayout>

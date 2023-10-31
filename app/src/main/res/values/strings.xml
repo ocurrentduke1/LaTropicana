@@ -1,0 +1,58 @@
+<resources>
+    <string name="app_name">La Tropicana</string>
+
+    <!-- Para Cuentas -->
+    <string name="Inicio">Inicio de sesion</string>
+    <string name="Usuario">Ingrese correo</string>
+    <string name="Contrasena">Ingrese contraseña</string>
+    <string name="InicioS">Iniciar sesion</string>
+    <string name="Cuenta">Crear cuenta</string>
+
+    <!-- Menu lateral -->
+    <string name="Home">Inicio</string>
+    <string name="Orders">Pedidos</string>
+    <string name="Producs">Productos</string>
+    <string name="Empleado">Empleados</string>
+
+    <!-- Formulario productos -->
+    <string name="nameProduct">Nombre de producto</string>
+    <string name="Price">Precio</string>
+    <string name="infoPro">Descripcion de producto</string>
+    <string name="tipoPro">Tipo de Producto</string>
+    <string name="Registro">Registrar</string>
+    <string name="logout">Salir</string>
+
+    <!-- Formulario empleado-->
+    <string name="Name">Ingresa Nombre</string>
+    <string name="age">Ingresa Edad</string>
+    <string name="RFC">Ingresa RFC</string>
+    <string name="Puesto">Puesto</string>
+
+    <!-- Mesa? -->
+    <string name="Ver">Ver orden</string>
+
+    <!-- Otros botones -->
+
+    <string name="Salir">Salir</string>
+    <string name="Pedido">Realizar pedido</string>
+    <string name="canPedido">Cancelar pedido</string>
+    <string name="Back">Volver</string>
+
+    <!-- Hasta aqui es lo ultimo -->
+
+    <string name="title_activity_menu_lateral">MenuLateralActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">La Tropicana</string>
+    <string name="nav_header_subtitle">tropicana@noreply.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Pedidos</string>
+    <string name="menu_gallery">Productos</string>
+    <string name="menu_slideshow">Empleados</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>
