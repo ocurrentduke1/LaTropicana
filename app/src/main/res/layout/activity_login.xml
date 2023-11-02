@@ -7,6 +7,25 @@
     android:background="@drawable/fondo_degradado"
     tools:context=".LoginActivity">
 
+    <TextView
+        android:id="@+id/btnGoogle"
+        android:layout_width="165dp"
+        android:layout_height="40dp"
+        android:background="@drawable/stroke_btn"
+        android:drawableStart="@mipmap/google"
+        android:fontFamily="@font/inter_semibold"
+        android:onClick="irRegistro"
+        android:padding="10dp"
+        android:text="Google"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_register"
+        app:layout_constraintVertical_bias="0.555" />
+
     <ImageView
         android:id="@+id/logo"
         android:layout_width="246dp"
@@ -95,10 +114,10 @@
 
     <TextView
         android:id="@+id/btn_register"
-        android:layout_width="220dp"
-        android:layout_height="50dp"
+        android:layout_width="181dp"
+        android:layout_height="43dp"
         android:layout_marginStart="131dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="131dp"
         android:background="@drawable/stroke_btn"
         android:fontFamily="@font/inter_semibold"
@@ -109,6 +128,7 @@
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_password" />
 
@@ -116,9 +136,6 @@
         android:id="@+id/btn_registry"
         android:layout_width="140dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="131dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="131dp"
         android:background="@drawable/stroke_btn"
         android:fontFamily="@font/inter_semibold"
         android:onClick="irRegistro"
@@ -127,8 +144,11 @@
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_register" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_register"
+        app:layout_constraintVertical_bias="0.159" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "136716434080",
+    "project_id": "latropicana",
+    "storage_bucket": "latropicana.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:136716434080:android:5ae8b405f37de8fb1ce7c5",
+        "android_client_info": {
+          "package_name": "com.example.prueba2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDy3J3wF6sSFLCbzOU24pTaGBIMFrWPWCQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
