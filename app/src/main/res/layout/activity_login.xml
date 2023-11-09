@@ -7,24 +7,13 @@
     android:background="@drawable/fondo_degradado"
     tools:context=".LoginActivity">
 
-    <TextView
+    <com.google.android.gms.common.SignInButton
         android:id="@+id/btnGoogle"
-        android:layout_width="165dp"
-        android:layout_height="40dp"
-        android:background="@drawable/stroke_btn"
-        android:drawableStart="@mipmap/google"
-        android:fontFamily="@font/inter_semibold"
-        android:onClick="irRegistro"
-        android:padding="10dp"
-        android:text="Google"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_register"
-        app:layout_constraintVertical_bias="0.555" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="142dp"
+        tools:layout_editor_absoluteY="623dp" />
 
     <ImageView
         android:id="@+id/logo"

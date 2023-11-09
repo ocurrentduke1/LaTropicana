@@ -18,6 +18,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -33,6 +34,7 @@ public class LoginActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN = 1;
     private GoogleSignInClient mGoogleSignInClient;
     private FirebaseAuth mAuth;
+    SignInButton signGoogle;
     private EditText uname, passwd;
 
     private Empleado[] employees = new Empleado[5];
@@ -51,6 +53,7 @@ public class LoginActivity extends AppCompatActivity {
                 .requestEmail()
                 .build();
         mAuth = FirebaseAuth.getInstance();
+        signGoogle = findViewById(R.id.btnGoogle);
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
@@ -89,6 +92,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private void irHome() {
         Intent intent = new Intent(LoginActivity.this, MenuCliente.class);
+        startActivity(intent);
+        finish();
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -104,7 +109,7 @@ public class LoginActivity extends AppCompatActivity {
                 firebaseAuthWithGoogle(account.getIdToken());
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
-
+                Toast.makeText(this, "ingreso con google rechazado", Toast.LENGTH_SHORT).show();
             }
         }
     }
