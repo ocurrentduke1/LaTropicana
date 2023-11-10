@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.prueba2.ui.slideshow.SlideshowFragment;
@@ -56,6 +57,13 @@ public class LoginActivity extends AppCompatActivity {
         signGoogle = findViewById(R.id.btnGoogle);
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
+        signGoogle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signIn();
+            }
+        });
 
         //inicio de sesion con cuenta de bar
         uname = (EditText) findViewById(R.id.txt_user);
@@ -109,7 +117,7 @@ public class LoginActivity extends AppCompatActivity {
                 firebaseAuthWithGoogle(account.getIdToken());
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
-                Toast.makeText(this, "ingreso con google rechazado", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -122,12 +130,11 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-
+                            irHome();
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
-
                             updateUI(null);
                         }
                     }
