@@ -52,14 +52,27 @@ public class GalleryFragment extends Fragment {
         imagen = binding.txtImagenProducto;
         //escaner
         resultado = binding.txtescaner;
+        TextView btnescan = (TextView) binding.btnescaner;
 
+        //boton para escaner
+        btnescan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                escanearCodigoBarra(v);
+            }
+        });
+
+        //boton registrar
         TextView btn_reg = (TextView) binding.btnRegistrarProducto;
+
         btn_reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 registrar(v);
             }
         });
+
+
 
         //final TextView textView = binding.textGallery;
         //galleryViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
@@ -73,8 +86,8 @@ public class GalleryFragment extends Fragment {
     }
 
     //metodo de escaner
-    public void escanearCodigoBarra(View view){
-        IntentIntegrator intentIntegrator = new IntentIntegrator(GalleryFragment.class);
+    public void escanearCodigoBarra(View view) {
+        IntentIntegrator intentIntegrator = IntentIntegrator.forSupportFragment(this);
 
         intentIntegrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
 
@@ -83,17 +96,16 @@ public class GalleryFragment extends Fragment {
         intentIntegrator.setBeepEnabled(true);
         intentIntegrator.setBarcodeImageEnabled(true);
         intentIntegrator.initiateScan();
-
-    }//escanearCodigoBarra
+    }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data){
 
         IntentResult intentResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if (intentResult != null){
             if (intentResult.getContents() == null){
-                Toast.makeText(this, "Lectura cancelada.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), "Lectura cancelada.",Toast.LENGTH_SHORT).show();
             }else {
-                Toast.makeText(this, "Datos leído.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), "Datos leído.", Toast.LENGTH_SHORT).show();
                 resultado.setText(intentResult.getContents());
             }
         }else {

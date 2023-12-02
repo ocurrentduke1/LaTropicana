@@ -37,6 +37,7 @@
         android:layout_marginBottom="100dp"
         android:background="@drawable/stroke_btn"
         android:fontFamily="@font/inter_semibold"
+        android:onClick="esca"
         android:padding="12dp"
         android:text="escanear codigo"
         android:textAlignment="center"
