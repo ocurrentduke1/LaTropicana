@@ -11,10 +11,9 @@
         android:id="@+id/btnubicacion"
         android:layout_width="180dp"
         android:layout_height="43dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/stroke_btn"
         android:fontFamily="@font/inter_semibold"
-        android:onClick="irRegistro"
         android:padding="10dp"
         android:text="locales"
         android:textAlignment="center"
@@ -23,17 +22,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnGoogle" />
-
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/btnGoogle"
-        android:layout_width="132dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <ImageView
         android:id="@+id/logo"
