@@ -102,4 +102,9 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void irLocalizacion(View view){
+        Intent intent = new Intent(this, localizacion.class);
+        startActivity(intent);
+    }
+
 }

@@ -14,6 +14,7 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/stroke_btn"
         android:fontFamily="@font/inter_semibold"
+        android:onClick="irLocalizacion"
         android:padding="10dp"
         android:text="locales"
         android:textAlignment="center"
