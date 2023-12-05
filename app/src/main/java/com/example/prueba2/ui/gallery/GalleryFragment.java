@@ -1,5 +1,6 @@
 package com.example.prueba2.ui.gallery;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -20,16 +21,21 @@ import com.example.prueba2.Producto;
 import com.example.prueba2.databinding.FragmentGalleryBinding;
 import com.google.gson.Gson;
 
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
+
 import java.util.Arrays;
 
 public class GalleryFragment extends Fragment {
-
     private FragmentGalleryBinding binding;
     private EditText nombre, precio, descripcion, imagen;
     private Spinner spinner;
     private String[] opt = {
             "beers", "wines", "food", "snaks" // Por comodidad lo dejamos asi...
     };
+
+    //variable de escaner
+    private EditText resultado;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -44,14 +50,29 @@ public class GalleryFragment extends Fragment {
         precio = binding.txtPrecio;
         descripcion = binding.txtDescripcionProducto;
         imagen = binding.txtImagenProducto;
+        //escaner
+        resultado = binding.txtescaner;
+        TextView btnescan = (TextView) binding.btnescaner;
 
+        //boton para escaner
+        btnescan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                escanearCodigoBarra(v);
+            }
+        });
+
+        //boton registrar
         TextView btn_reg = (TextView) binding.btnRegistrarProducto;
+
         btn_reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 registrar(v);
             }
         });
+
+
 
         //final TextView textView = binding.textGallery;
         //galleryViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
@@ -64,12 +85,41 @@ public class GalleryFragment extends Fragment {
         binding = null;
     }
 
+    //metodo de escaner
+    public void escanearCodigoBarra(View view) {
+        IntentIntegrator intentIntegrator = IntentIntegrator.forSupportFragment(this);
+
+        intentIntegrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
+
+        intentIntegrator.setPrompt("Lector - CDP");
+        intentIntegrator.setCameraId(0);
+        intentIntegrator.setBeepEnabled(true);
+        intentIntegrator.setBarcodeImageEnabled(true);
+        intentIntegrator.initiateScan();
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+
+        IntentResult intentResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if (intentResult != null){
+            if (intentResult.getContents() == null){
+                Toast.makeText(requireContext(), "Lectura cancelada.",Toast.LENGTH_SHORT).show();
+            }else {
+                Toast.makeText(requireContext(), "Datos leído.", Toast.LENGTH_SHORT).show();
+                resultado.setText(intentResult.getContents());
+            }
+        }else {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }//onActivityResult
+
     private void registrar(View v) {
         String selected = spinner.getSelectedItem().toString();
         String name = nombre.getText().toString();
         double price = Double.parseDouble(precio.getText().toString());
         String description = descripcion.getText().toString();
         String image = imagen.getText().toString();
+        String escaner = resultado.getText().toString();
         SharedPreferences preferences = getActivity().getSharedPreferences("key_productos", getContext().MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         Gson gson = new Gson();

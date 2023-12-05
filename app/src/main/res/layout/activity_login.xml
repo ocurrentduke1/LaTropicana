@@ -8,23 +8,22 @@
     tools:context=".LoginActivity">
 
     <TextView
-        android:id="@+id/btnGoogle"
-        android:layout_width="165dp"
-        android:layout_height="40dp"
+        android:id="@+id/btnubicacion"
+        android:layout_width="180dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/stroke_btn"
-        android:drawableStart="@mipmap/google"
         android:fontFamily="@font/inter_semibold"
-        android:onClick="irRegistro"
+        android:onClick="irLocalizacion"
         android:padding="10dp"
-        android:text="Google"
+        android:text="locales"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_register"
-        app:layout_constraintVertical_bias="0.555" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <ImageView
         android:id="@+id/logo"
@@ -110,45 +109,47 @@
         android:tint="#ABB1B1"
         app:layout_constraintBottom_toBottomOf="@+id/txt_password"
         app:layout_constraintStart_toStartOf="@+id/txt_password"
-        app:layout_constraintTop_toTopOf="@+id/txt_password" />
+        app:layout_constraintTop_toTopOf="@+id/txt_password"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-        android:id="@+id/btn_register"
-        android:layout_width="181dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="131dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="131dp"
-        android:background="@drawable/stroke_btn"
-        android:fontFamily="@font/inter_semibold"
-        android:onClick="login"
-        android:padding="12dp"
-        android:text="Iniciar sesion"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="16sp"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="411dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_password" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_password">
 
-    <TextView
-        android:id="@+id/btn_registry"
-        android:layout_width="140dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/stroke_btn"
-        android:fontFamily="@font/inter_semibold"
-        android:onClick="irRegistro"
-        android:padding="10dp"
-        android:text="Crear cuenta"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_register"
-        app:layout_constraintVertical_bias="0.159" />
+        <TextView
+            android:id="@+id/btn_register"
+            android:layout_width="180dp"
+            android:layout_height="43dp"
+            android:background="@drawable/stroke_btn"
+            android:fontFamily="@font/inter_semibold"
+            android:onClick="login"
+            android:padding="12dp"
+            android:text="Iniciar sesion"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/btn_registry"
+            android:layout_width="180dp"
+            android:layout_height="43dp"
+            android:background="@drawable/stroke_btn"
+            android:fontFamily="@font/inter_semibold"
+            android:onClick="irRegistro"
+            android:padding="10dp"
+            android:text="Crear cuenta"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

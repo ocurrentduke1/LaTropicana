@@ -27,7 +27,8 @@
     <string name="age">Ingresa Edad</string>
     <string name="RFC">Ingresa RFC</string>
     <string name="Puesto">Puesto</string>
-
+    <!-- inicio de sesion con google-->
+    <string name="default_web_client_id">firebase-adminsdk-xj4xh@latropicana.iam.gserviceaccount.com</string>
     <!-- Mesa? -->
     <string name="Ver">Ver orden</string>
 

@@ -1,17 +1,36 @@
 package com.example.prueba2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.prueba2.ui.slideshow.SlideshowFragment;
+import com.google.android.gms.auth.api.identity.BeginSignInRequest;
+import com.google.android.gms.auth.api.identity.SignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GoogleAuthProvider;
 
 public class LoginActivity extends AppCompatActivity {
+
     private EditText uname, passwd;
 
     private Empleado[] employees = new Empleado[5];
@@ -22,6 +41,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         getSupportActionBar().hide();
+
+        //inicio de sesion con cuenta de bar
         uname = (EditText) findViewById(R.id.txt_user);
         passwd = (EditText) findViewById(R.id.txt_password);
         employees[0] = new Empleado("admin", "123", "Empleado", true);
@@ -78,6 +99,11 @@ public class LoginActivity extends AppCompatActivity {
 
     public void irRegistro(View view){
         Intent intent = new Intent(this, RegistroActivity.class);
+        startActivity(intent);
+    }
+
+    public void irLocalizacion(View view){
+        Intent intent = new Intent(this, localizacion.class);
         startActivity(intent);
     }
 

@@ -16,10 +16,14 @@ import com.example.prueba2.databinding.ActivityMenuClienteBinding;
 import com.example.prueba2.ui.fragments.CarritoFragment;
 import com.example.prueba2.ui.fragments.CuentaFragment;
 import com.example.prueba2.ui.fragments.MenuFragment;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MenuCliente extends AppCompatActivity {
 
     ActivityMenuClienteBinding binding;
+
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +31,10 @@ public class MenuCliente extends AppCompatActivity {
         binding = ActivityMenuClienteBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         getSupportActionBar().hide();
+
+        //autenticacion Google
+        mAuth = FirebaseAuth.getInstance();
+
         viewFragment(new MenuFragment());
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
@@ -40,10 +48,34 @@ public class MenuCliente extends AppCompatActivity {
                     viewFragment(new CarritoFragment());
                     break;
                 case R.id.salir_cliente:
+                    logOut();
                     break;
             }
             return true;
         });
+    }
+
+    //metodos de verificacion de usuario
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser usrf = mAuth.getCurrentUser();
+        if(usrf == null){
+            irLogin();
+        }
+    }
+
+    private void logOut() {
+        mAuth.signOut();
+        irLogin();
+    }
+
+    private void irLogin() {
+        Intent intent = new Intent(MenuCliente.this, LoginActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     private void viewFragment(Fragment fragment) {
