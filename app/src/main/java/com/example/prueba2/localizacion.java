@@ -31,7 +31,7 @@ public class localizacion extends AppCompatActivity implements OnMapReadyCallbac
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
     }
-
+    //
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
 
