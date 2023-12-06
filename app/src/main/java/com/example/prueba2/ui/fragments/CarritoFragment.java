@@ -4,6 +4,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentResultListener;
@@ -18,6 +20,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.prueba2.NotificationHelper;
 import com.example.prueba2.Producto;
 import com.example.prueba2.R;
 import com.example.prueba2.ui.adaptadores.CartAdapter;
@@ -82,6 +85,8 @@ public class CarritoFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(getContext());
+        notificationManager.cancel(1);
     }
 
     @Override
@@ -146,7 +151,10 @@ public class CarritoFragment extends Fragment {
         editorPedido.apply();
 
         limpiarCarro(view);
-        Toast.makeText(viewRoot.getContext(), "Pedido realizado", Toast.LENGTH_SHORT).show();
+        /* Mandar notificacion que se realizo el pedido */
+        NotificationHelper notificationHelper = new NotificationHelper(viewRoot.getContext());
+        NotificationCompat.Builder nb = notificationHelper.getChannelNotification("Pedido realizado", "Tu pedido se ha realizado con exito, en breve llegara a tu mesa!");
+        notificationHelper.getManager().notify(1, nb.build());
     }
 
     public void limpiarCarro(View view) {

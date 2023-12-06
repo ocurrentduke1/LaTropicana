@@ -23,17 +23,12 @@ public class MenuCliente extends AppCompatActivity {
 
     ActivityMenuClienteBinding binding;
 
-    private FirebaseAuth mAuth;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMenuClienteBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         getSupportActionBar().hide();
-
-        //autenticacion Google
-        mAuth = FirebaseAuth.getInstance();
 
         viewFragment(new MenuFragment());
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -48,34 +43,10 @@ public class MenuCliente extends AppCompatActivity {
                     viewFragment(new CarritoFragment());
                     break;
                 case R.id.salir_cliente:
-                    logOut();
                     break;
             }
             return true;
         });
-    }
-
-    //metodos de verificacion de usuario
-
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        FirebaseUser usrf = mAuth.getCurrentUser();
-        if(usrf == null){
-            irLogin();
-        }
-    }
-
-    private void logOut() {
-        mAuth.signOut();
-        irLogin();
-    }
-
-    private void irLogin() {
-        Intent intent = new Intent(MenuCliente.this, LoginActivity.class);
-        startActivity(intent);
-        finish();
     }
 
     private void viewFragment(Fragment fragment) {
